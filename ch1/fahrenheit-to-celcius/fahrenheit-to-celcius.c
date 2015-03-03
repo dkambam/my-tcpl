@@ -9,8 +9,8 @@ Print a table with fahrenheit values and corresponding celcius values.
 
 
 void printHeaders(const char *fields[], const int n_fields, const char *sep);
-void printRow(const int fahrenheit, const int celcius, const char *fields[], const char* sep);
-int toCelcius(const int fahrenheit);
+void printRow(const double fahrenheit, const double celcius, const char *fields[], const char* sep);
+double toCelcius(const double fahrenheit);
 
 int main(){
 
@@ -20,7 +20,7 @@ int main(){
 
 	printHeaders(fields, n_fields, sep);
 
-	for (int fahrenheit=0; fahrenheit<=200; fahrenheit += 20){
+	for (double fahrenheit=0; fahrenheit<=200; fahrenheit += 20){
 		printRow(fahrenheit, toCelcius(fahrenheit), fields, sep);
 	}
 	
@@ -29,7 +29,7 @@ int main(){
 }
 
 
-int toCelcius(const int fahrenheit){
+double toCelcius(const double fahrenheit){
 	return (fahrenheit - 32) * 5 / 9;
 }
 
@@ -42,6 +42,6 @@ void printHeaders(const char *fields[], const int n_fields, const char *sep){
 	printf("\n");
 }
 
-void printRow(const int fahrenheit, const int celcius, const char *fields[], const char* sep){
-	printf("%*d\t%*d\n", (int)strlen(fields[0]), fahrenheit, (int)strlen(fields[1]), celcius);	
+void printRow(const double fahrenheit, const double celcius, const char *fields[], const char* sep){
+	printf("%*.1f\t%*.1f\n", (int)strlen(fields[0]), fahrenheit, (int)strlen(fields[1]), celcius);	
 }

@@ -7,7 +7,9 @@ Print a table with fahrenheit values and corresponding celcius values.
 #include <stdio.h>
 #include <string.h>
 
+
 void printHeaders(const char *fields[], const int n_fields, const char *sep);
+void printRow(const int fahrenheit, const int celcius, const char *fields[], const char* sep);
 
 int main(){
 
@@ -18,7 +20,7 @@ int main(){
 	printHeaders(fields, n_fields, sep);
 
 	int fahrenheit = 10, celcius = 12;
-	printf("%*d\t%*d\n", (int)strlen(fields[0]), fahrenheit, (int)strlen(fields[1]), celcius);
+	printRow(fahrenheit, celcius, fields, sep);
 
 	return 0;
 }
@@ -30,4 +32,8 @@ void printHeaders(const char *fields[], const int n_fields, const char *sep){
 			printf(sep);
 	}
 	printf("\n");
+}
+
+void printRow(const int fahrenheit, const int celcius, const char *fields[], const char* sep){
+	printf("%*d\t%*d\n", (int)strlen(fields[0]), fahrenheit, (int)strlen(fields[1]), celcius);	
 }

@@ -1,7 +1,7 @@
 /*
 DEMO: See the usage of loops. 
 
-Print a table of values with fahrenheit and corresponding celcius values.
+Print a table with fahrenheit values and corresponding celcius values.
 */
 
 

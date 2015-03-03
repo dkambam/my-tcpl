@@ -10,6 +10,7 @@ Print a table with fahrenheit values and corresponding celcius values.
 
 void printHeaders(const char *fields[], const int n_fields, const char *sep);
 void printRow(const int fahrenheit, const int celcius, const char *fields[], const char* sep);
+int toCelcius(const int fahrenheit);
 
 int main(){
 
@@ -19,10 +20,17 @@ int main(){
 
 	printHeaders(fields, n_fields, sep);
 
-	int fahrenheit = 10, celcius = 12;
-	printRow(fahrenheit, celcius, fields, sep);
+	for (int fahrenheit=0; fahrenheit<=200; fahrenheit += 20){
+		printRow(fahrenheit, toCelcius(fahrenheit), fields, sep);
+	}
+	
 
 	return 0;
+}
+
+
+int toCelcius(const int fahrenheit){
+	return (fahrenheit - 32) * 5 / 9;
 }
 
 void printHeaders(const char *fields[], const int n_fields, const char *sep){

@@ -1,9 +1,14 @@
-OUTFILE = fahrenheit-to-celcius.out
-SRC = `echo *.c`
+CC = gcc
+CFLAGS = -Wall
+OBJS = main.o temperature_table.o
 
+TARGET = farenheit-to-celcius.out
 
-all:
-	cc -Wall $(SRC) -o $(OUTFILE)
+all: $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
 
+$(OBJS): temperature_table.h
+
+.PHONY: clean
 clean:
-	rm *.out
+	-rm $(OBJS) $(TARGET)

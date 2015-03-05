@@ -7,21 +7,22 @@ Print a table with fahrenheit values and corresponding celcius values.
 #include <stdio.h>
 #include <string.h>
 
-struct Table{
+typedef struct {
 	const char **fields;
 	const int n_fields;
 	const char *sep;
-};
+}table_t;
+
 
 void printHeaders(const char *fields[], const int n_fields, const char *sep);
 void printRow(const double fahrenheit, const double celcius, const char *fields[], const char* sep);
 double toCelcius(const double fahrenheit);
-struct Table makeTable(const char *fields[], const int n_fields, const char* sep);
+table_t makeTable(const char *fields[], const int n_fields, const char* sep);
 
 int main(){
 
 
-	struct Table temperatureTable;
+	table_t temperatureTable;
 	temperatureTable = makeTable( (const char *[]){"Fahrenheit", "Celcius"}, 2, "\t" );
 
 	printHeaders(temperatureTable.fields, temperatureTable.n_fields, temperatureTable.sep);
@@ -52,7 +53,7 @@ void printRow(const double fahrenheit, const double celcius, const char *fields[
 	printf("%*.1f\t%*.1f\n", (int)strlen(fields[0]), fahrenheit, (int)strlen(fields[1]), celcius);	
 }
 
-struct Table makeTable(const char *fields[], const int n_fields, const char* sep){
-	struct Table t = { fields, n_fields, sep};
+table_t makeTable(const char *fields[], const int n_fields, const char* sep){
+	table_t t = { fields, n_fields, sep};
 	return t;
 }

@@ -7,6 +7,14 @@ Print a table with fahrenheit values and corresponding celcius values.
 #include <stdio.h>
 #include <string.h>
 
+struct Table{
+	char **fields;
+	int n_fields;
+	char *sep;
+};
+
+
+
 
 void printHeaders(const char *fields[], const int n_fields, const char *sep);
 void printRow(const double fahrenheit, const double celcius, const char *fields[], const char* sep);
@@ -14,14 +22,16 @@ double toCelcius(const double fahrenheit);
 
 int main(){
 
-	const char *fields[] = {"Fahrenheit", "Celcius"};
-	const int n_fields = 2;
-	const char *sep = "\t";
 
-	printHeaders(fields, n_fields, sep);
+	struct Table temperatureTable;
+	temperatureTable.fields = (char *[]){"Fahrenheit", "Celcius"};
+	temperatureTable.n_fields = 2;
+	temperatureTable.sep = "\t";
+
+	printHeaders(temperatureTable.fields, temperatureTable.n_fields, temperatureTable.sep);
 
 	for (double fahrenheit=0; fahrenheit<=200; fahrenheit += 20){
-		printRow(fahrenheit, toCelcius(fahrenheit), fields, sep);
+		printRow(fahrenheit, toCelcius(fahrenheit), temperatureTable.fields, temperatureTable.sep);
 	}
 	
 

@@ -15,7 +15,7 @@ typedef struct {
 
 
 void printHeaders(table_t table);
-void printRow(const double fahrenheit, const double celcius, const char *fields[], const char* sep);
+void printRow(const double fahrenheit, const double celcius, const table_t table);
 double toCelcius(const double fahrenheit);
 table_t makeTable(const char *fields[], const int n_fields, const char* sep);
 
@@ -28,7 +28,7 @@ int main(){
 	printHeaders(temperatureTable);
 
 	for (double fahrenheit=0; fahrenheit<=200; fahrenheit += 20){
-		printRow(fahrenheit, toCelcius(fahrenheit), temperatureTable.fields, temperatureTable.sep);
+		printRow(fahrenheit, toCelcius(fahrenheit), temperatureTable);
 	}
 	
 
@@ -49,8 +49,8 @@ void printHeaders(table_t table){
 	printf("\n");
 }
 
-void printRow(const double fahrenheit, const double celcius, const char *fields[], const char* sep){
-	printf("%*.1f\t%*.1f\n", (int)strlen(fields[0]), fahrenheit, (int)strlen(fields[1]), celcius);	
+void printRow(const double fahrenheit, const double celcius, const table_t table){
+	printf("%*.1f%s%*.1f\n", (int)strlen(table.fields[0]), fahrenheit, table.sep, (int)strlen(table.fields[1]), celcius);	
 }
 
 table_t makeTable(const char *fields[], const int n_fields, const char* sep){

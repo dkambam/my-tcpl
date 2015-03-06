@@ -1,2 +1,2 @@
 ##Issues
-printf format-spec limits temperature_t to float & double only.
+1. printf format-spec limits temperature_t to float & double only.

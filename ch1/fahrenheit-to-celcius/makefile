@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall
 OBJS = main.o temperature_table.o
 
-TARGET = farenheit-to-celcius.out
+TARGET = fahrenheit-to-celcius.out
 
 all: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)

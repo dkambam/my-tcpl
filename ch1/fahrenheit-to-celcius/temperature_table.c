@@ -7,8 +7,6 @@ table_t makeTable(const char *fields[], const int n_fields, const char* sep){
 	return t;
 }
 
-
-
 void printHeaders(table_t table){
 	for(int i=0; i < table.n_fields; i++){
 		printf("%s", table.fields[i]);
@@ -18,12 +16,10 @@ void printHeaders(table_t table){
 	printf("\n");
 }
 
-void printRow(const double fahrenheit, const double celcius, const table_t table){
+void printRow(const temperature_t fahrenheit, const temperature_t celcius, const table_t table){
 	printf("%*.1f%s%*.1f\n", (int)strlen(table.fields[0]), fahrenheit, table.sep, (int)strlen(table.fields[1]), celcius);	
 }
 
-
-
-double toCelcius(const double fahrenheit){
+double toCelcius(const temperature_t fahrenheit){
 	return (fahrenheit - 32) * 5 / 9;
 }

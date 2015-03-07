@@ -1,1 +1,1 @@
-A simple prorgam that copies it's input to output
+A simple program that copies it's input to output

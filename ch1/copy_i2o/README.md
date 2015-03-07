@@ -1,0 +1,1 @@
+A simple prorgam that copies it's input to output

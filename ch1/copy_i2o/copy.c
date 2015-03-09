@@ -1,8 +1,8 @@
 #include <stdio.h>
-
+#include "bool.h"
 int main(){
 
-	while(1){
+	while(true){
 		char c; 
 		if( (c = getchar()) != EOF ) // notice the idiom
 			putchar(c);

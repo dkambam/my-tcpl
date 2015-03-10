@@ -1,3 +1,2 @@
-#my-tcpl
-
-Practice code from / inspired from K & R The c programming language 
+##Overview
+Practice code inspired by 'The c programming language' [K & R]
